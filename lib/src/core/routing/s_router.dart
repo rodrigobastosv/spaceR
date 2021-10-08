@@ -21,6 +21,12 @@ class SRouter {
           child: const LaunchPage(),
         );
         break;
+      case MAIN_PAGE:
+        routeWidget = BlocProvider<MainBloc>(
+          create: (_) => MainBloc(),
+          child: const MainPage(),
+        );
+        break;
       default:
         routeWidget = const Scaffold();
     }

@@ -8,6 +8,20 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "22.0.0"
+  adaptive_breakpoints:
+    dependency: transitive
+    description:
+      name: adaptive_breakpoints
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.0.5"
+  adaptive_navigation:
+    dependency: "direct main"
+    description:
+      name: adaptive_navigation
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.0.4"
   analyzer:
     dependency: transitive
     description:
@@ -575,7 +589,7 @@ packages:
       name: win32
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.2.9"
+    version: "2.0.5"
   xdg_directories:
     dependency: transitive
     description:
@@ -591,5 +605,5 @@ packages:
     source: hosted
     version: "3.1.0"
 sdks:
-  dart: ">=2.13.0 <3.0.0"
+  dart: ">=2.12.0 <3.0.0"
   flutter: ">=2.0.0"

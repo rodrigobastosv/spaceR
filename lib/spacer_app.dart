@@ -15,7 +15,7 @@ class SpaceRApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: theme,
       onGenerateRoute: SRouter.generateRoutes,
-      initialRoute: LAUNCH_PAGE,
+      initialRoute: MAIN_PAGE,
     );
   }
 }
