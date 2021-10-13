@@ -1,7 +1,9 @@
-import 'package:convex_bottom_bar/convex_bottom_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+
+import '../../core/core.dart';
 import '../features.dart';
+import 'widget/widget.dart';
 
 class MainPage extends StatelessWidget {
   const MainPage({
@@ -10,49 +12,16 @@ class MainPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<MainBloc, MainState>(
+    return BlocConsumer<MainBloc, MainState>(
+      listener: (_, state) {
+        if (state is MainDestinationChanged) {
+          Navigator.of(context).pop();
+        }
+      },
       builder: (_, state) => Scaffold(
-        bottomNavigationBar: ConvexAppBar(
-          style: TabStyle.reactCircle,
-          backgroundColor: Theme.of(context).colorScheme.primary,
-          activeColor: Theme.of(context).colorScheme.primaryVariant,
-          items: const [
-            TabItem(
-              icon: CircleAvatar(
-                backgroundImage: AssetImage('assets/images/launches.jpg'),
-              ),
-              title: 'Launches',
-            ),
-            TabItem(
-              icon: CircleAvatar(
-                backgroundImage: AssetImage('assets/images/agencies.jpg'),
-              ),
-              title: 'Agencies',
-            ),
-            TabItem(
-              icon: CircleAvatar(
-                backgroundImage: AssetImage('assets/images/events.jpg'),
-              ),
-              title: 'Events',
-            ),
-            TabItem(
-              icon: CircleAvatar(
-                backgroundImage: AssetImage('assets/images/astronauts.jpg'),
-              ),
-              title: 'Astronauts',
-            ),
-            TabItem(
-              icon: CircleAvatar(
-                backgroundImage: AssetImage('assets/images/expeditions.jpg'),
-              ),
-              title: 'Expeditions',
-            ),
-          ],
-          initialActiveIndex: 2,
-          onTap: (index) => context.read<MainBloc>().add(
-                MainChangeDestination(index),
-              ),
-        ),
+        appBar: isMobile() ? null : AppBar(),
+        drawer: isMobile() ? null : const SDrawer(),
+        bottomNavigationBar: isMobile() ? const SBottomBar() : null,
         body: Container(
           color: state.destinationIndex == 0 ? Colors.blue : Colors.black,
         ),
