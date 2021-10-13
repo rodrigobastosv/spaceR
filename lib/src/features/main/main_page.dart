@@ -14,7 +14,7 @@ class MainPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocConsumer<MainBloc, MainState>(
       listener: (_, state) {
-        if (state is MainDestinationChanged) {
+        if (state is MainDestinationChanged && !isMobile()) {
           Navigator.of(context).pop();
         }
       },
@@ -22,10 +22,41 @@ class MainPage extends StatelessWidget {
         appBar: isMobile() ? null : AppBar(),
         drawer: isMobile() ? null : const SDrawer(),
         bottomNavigationBar: isMobile() ? const SBottomBar() : null,
-        body: Container(
-          color: state.destinationIndex == 0 ? Colors.blue : Colors.black,
-        ),
+        body: _getPageByIndex(state.destinationIndex),
       ),
     );
+  }
+
+  Widget _getPageByIndex(int index) {
+    switch (index) {
+      case 0:
+        return Container(
+          color: Colors.black,
+        );
+      case 1:
+        return Container(
+          color: Colors.blue,
+        );
+      case 2:
+        return Container(
+          color: Colors.green,
+        );
+      case 3:
+        return Container(
+          color: Colors.yellow,
+        );
+      case 4:
+        return Container(
+          color: Colors.red,
+        );
+      case 5:
+        return Container(
+          color: Colors.cyanAccent,
+        );
+      default:
+        return Container(
+          color: Colors.cyanAccent,
+        );
+    }
   }
 }
