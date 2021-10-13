@@ -3,11 +3,11 @@ import 'style.dart';
 
 final theme = ThemeData(
   primaryColor: primaryMain,
-  primaryColorDark: primaryDark,
-  primaryColorLight: primaryLight,
-  colorScheme: const ColorScheme(
+  primaryColorDark: primarySemiLight,
+  primaryColorLight: primarySemiLight,
+  colorScheme: ColorScheme(
     primary: primaryMain,
-    primaryVariant: primaryMain,
+    primaryVariant: primarySemiLight,
     secondary: accentMain,
     secondaryVariant: accentMain,
     surface: yellow,
