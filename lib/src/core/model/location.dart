@@ -19,9 +19,9 @@ class Location extends Equatable {
   final String url;
   final String name;
   final String? countryCode;
-  final String mapImage;
-  final int totalLaunchCount;
-  final int totalLandingCount;
+  final String? mapImage;
+  final int? totalLaunchCount;
+  final int? totalLandingCount;
 
   factory Location.fromJson(Map<String, dynamic> json) =>
       _$LocationFromJson(json);

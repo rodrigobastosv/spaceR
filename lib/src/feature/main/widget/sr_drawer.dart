@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../features.dart';
+import '../../feature.dart';
 
-class SDrawer extends StatelessWidget {
-  const SDrawer({
+class SRDrawer extends StatelessWidget {
+  const SRDrawer({
     Key? key,
   }) : super(key: key);
 

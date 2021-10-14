@@ -1,6 +1,6 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../features/features.dart';
+import '../../feature/feature.dart';
 import '../core.dart';
 
 final repositoriesProviders = [

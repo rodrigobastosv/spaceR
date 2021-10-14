@@ -28,11 +28,12 @@ Launch _$LaunchFromJson(Map<String, dynamic> json) {
     rocket: Rocket.fromJson(json['rocket'] as Map<String, dynamic>),
     mission: Mission.fromJson(json['mission'] as Map<String, dynamic>),
     pad: Pad.fromJson(json['pad'] as Map<String, dynamic>),
-    webcastLive: json['webcastLive'] as bool,
+    webcastLive: json['webcastLive'] as bool?,
     image: json['image'] as String?,
     infographic: json['infographic'] as String?,
-    program:
-        (json['program'] as List<dynamic>?)?.map((e) => e as String).toList(),
+    program: (json['program'] as List<dynamic>?)
+        ?.map((e) => e as Map<String, dynamic>)
+        .toList(),
   );
 }
 

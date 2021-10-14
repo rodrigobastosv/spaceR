@@ -18,8 +18,8 @@ Pad _$PadFromJson(Map<String, dynamic> json) {
     latitude: json['latitude'] as String,
     longitude: json['longitude'] as String,
     location: Location.fromJson(json['location'] as Map<String, dynamic>),
-    mapImage: json['mapImage'] as String,
-    totalLaunchCount: json['totalLaunchCount'] as int,
+    mapImage: json['mapImage'] as String?,
+    totalLaunchCount: json['totalLaunchCount'] as int?,
   );
 }
 

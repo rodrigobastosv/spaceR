@@ -12,7 +12,7 @@ class HttpLaunchRepository implements LaunchRepository {
   @override
   Future<List<Launch>> fetchLaunchs() async {
     try {
-      final response = await client.get(LAUNCH);
+      final response = await client.get(LAUNCH_UPCOMING);
       if (response.statusCode == HTTP_OK) {
         final data = response.data['results'] as List;
         return List.generate(

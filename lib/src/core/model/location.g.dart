@@ -12,9 +12,9 @@ Location _$LocationFromJson(Map<String, dynamic> json) {
     url: json['url'] as String,
     name: json['name'] as String,
     countryCode: json['countryCode'] as String?,
-    mapImage: json['mapImage'] as String,
-    totalLaunchCount: json['totalLaunchCount'] as int,
-    totalLandingCount: json['totalLandingCount'] as int,
+    mapImage: json['mapImage'] as String?,
+    totalLaunchCount: json['totalLaunchCount'] as int?,
+    totalLandingCount: json['totalLandingCount'] as int?,
   );
 }
 

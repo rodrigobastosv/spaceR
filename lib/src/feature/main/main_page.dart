@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../core/core.dart';
-import '../features.dart';
+import '../feature.dart';
 import 'widget/widget.dart';
 
 class MainPage extends StatelessWidget {
@@ -20,8 +20,8 @@ class MainPage extends StatelessWidget {
       },
       builder: (_, state) => Scaffold(
         appBar: isMobile() ? null : AppBar(),
-        drawer: isMobile() ? null : const SDrawer(),
-        bottomNavigationBar: isMobile() ? const SBottomBar() : null,
+        drawer: isMobile() ? null : const SRDrawer(),
+        bottomNavigationBar: isMobile() ? const SRBottomBar() : null,
         body: _getPageByIndex(state.destinationIndex),
       ),
     );
@@ -34,9 +34,7 @@ class MainPage extends StatelessWidget {
           color: Colors.black,
         );
       case 1:
-        return Container(
-          color: Colors.blue,
-        );
+        return const LaunchPage();
       case 2:
         return Container(
           color: Colors.green,

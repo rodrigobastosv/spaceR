@@ -4,8 +4,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../main.dart';
 
-class SBottomBar extends StatelessWidget {
-  const SBottomBar({
+class SRBottomBar extends StatelessWidget {
+  const SRBottomBar({
     Key? key,
   }) : super(key: key);
 

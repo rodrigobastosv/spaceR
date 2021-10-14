@@ -49,10 +49,10 @@ class Launch extends Equatable {
   final Rocket rocket;
   final Mission mission;
   final Pad pad;
-  final bool webcastLive;
+  final bool? webcastLive;
   final String? image;
   final String? infographic;
-  final List<String>? program;
+  final List<Map<String, dynamic>>? program;
 
   factory Launch.fromJson(Map<String, dynamic> json) =>
       _$LaunchFromJson(json);

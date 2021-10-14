@@ -32,8 +32,8 @@ class Pad extends Equatable {
   final String latitude;
   final String longitude;
   final Location location;
-  final String mapImage;
-  final int totalLaunchCount;
+  final String? mapImage;
+  final int? totalLaunchCount;
 
   factory Pad.fromJson(Map<String, dynamic> json) =>
       _$PadFromJson(json);
