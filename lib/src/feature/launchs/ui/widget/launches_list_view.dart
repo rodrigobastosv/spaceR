@@ -14,6 +14,7 @@ class LaunchesListView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
+      shrinkWrap: true,
       itemBuilder: (_, i) => Padding(
         padding: const EdgeInsets.all(8),
         child: LaunchCard(launch: launches[i]),

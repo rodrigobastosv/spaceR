@@ -1,8 +1,8 @@
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 
-import '../../../core/core.dart';
-import '../repository/launches_repository.dart';
+import '../../../../core/core.dart';
+import '../../../feature.dart';
 
 part 'launches_event.dart';
 part 'launches_state.dart';
@@ -17,7 +17,7 @@ class LaunchesBloc extends Bloc<LaunchesEvent, LaunchesState> {
 
   final LaunchesRepository _launchesRepository;
 
-  Future<void> _getAllLaunchs(handler, emit) async {
+  Future<void> _getAllLaunchs(LaunchesGetAll event, emit) async {
     emit(LaunchesFetchLoading());
 
     try {
