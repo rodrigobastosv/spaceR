@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../ui/ui.dart';
 import '../../../ui/component/component.dart';
 import '../launchs.dart';
 
@@ -17,16 +18,14 @@ class LaunchPage extends StatelessWidget {
       )..add(LaunchesGetAll()),
       child: Scaffold(
         body: BlocBuilder<LaunchesBloc, LaunchesState>(
-          builder: (_, state) {
+          builder: (context, state) {
             if (state is LaunchesFetchSuccess) {
-              final launchs = state.launchs;
-              return ListView.builder(
-                itemBuilder: (_, i) => Padding(
-                  padding: const EdgeInsets.all(8),
-                  child: LaunchCard(launch: launchs[i]),
-                ),
-                itemCount: launchs.length,
-              );
+              final launches = state.launchs;
+              if (isMobile(context)) {
+                return LaunchesListView(launches: launches);
+              } else {
+                return LaunchesGridView(launches: launches);
+              }
             } else if (state is LaunchesFetchLoading) {
               return const SRLoadingIndicator();
             } else {

@@ -12,7 +12,7 @@ String getPlatform() {
   }
 }
 
-bool isMobile() => isAndroid() || isIOS();
+bool isPlatformMobile() => isAndroid() || isIOS();
 
 bool isAndroid() => kIsWeb ? false : Platform.isAndroid;
 

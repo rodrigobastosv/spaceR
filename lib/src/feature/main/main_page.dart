@@ -14,14 +14,14 @@ class MainPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocConsumer<MainBloc, MainState>(
       listener: (_, state) {
-        if (state is MainDestinationChanged && !isMobile()) {
+        if (state is MainDestinationChanged && !isPlatformMobile()) {
           Navigator.of(context).pop();
         }
       },
       builder: (_, state) => Scaffold(
-        appBar: isMobile() ? null : AppBar(),
-        drawer: isMobile() ? null : const SRDrawer(),
-        bottomNavigationBar: isMobile() ? const SRBottomBar() : null,
+        appBar: isPlatformMobile() ? null : AppBar(),
+        drawer: isPlatformMobile() ? null : const SRDrawer(),
+        bottomNavigationBar: isPlatformMobile() ? const SRBottomBar() : null,
         body: _getPageByIndex(state.destinationIndex),
       ),
     );

@@ -23,21 +23,23 @@ class LaunchCard extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           Container(
-            foregroundDecoration: RotatedCornerDecoration(
-              color: getColorByStatusName(launch.status.name),
-              geometry: const BadgeGeometry(
-                width: 62,
-                height: 60,
-                alignment: BadgeAlignment.topLeft,
-              ),
-              textSpan: TextSpan(
-                text: launch.status.abbrev,
-                style: Theme.of(context).textTheme.bodyText1!.copyWith(
-                      color: Colors.white,
+            foregroundDecoration: isPlatformMobile()
+                ? RotatedCornerDecoration(
+                    color: getColorByStatusName(launch.status.name),
+                    geometry: const BadgeGeometry(
+                      width: 62,
+                      height: 60,
+                      alignment: BadgeAlignment.topLeft,
                     ),
-              ),
-              labelInsets: const LabelInsets(baselineShift: 3, start: 1),
-            ),
+                    textSpan: TextSpan(
+                      text: launch.status.abbrev,
+                      style: Theme.of(context).textTheme.bodyText1!.copyWith(
+                            color: Colors.white,
+                          ),
+                    ),
+                    labelInsets: const LabelInsets(baselineShift: 3, start: 1),
+                  )
+                : null,
             child: ClipRRect(
               borderRadius: const BorderRadius.only(
                 topLeft: Radius.circular(16),
@@ -45,6 +47,8 @@ class LaunchCard extends StatelessWidget {
               ),
               child: Image.network(
                 launch.image!,
+                height: isMobile(context) ? 200 : 400,
+                fit: BoxFit.cover,
                 loadingBuilder: getDefaultImageLoadingBuilder(
                   height: 200,
                 ),
@@ -69,18 +73,21 @@ class LaunchCard extends StatelessWidget {
               ),
             ),
           ),
-          Padding(
-            padding: const EdgeInsets.only(
-              top: 4,
-              left: 8,
-              right: 8,
-              bottom: 16,
-            ),
-            child: Text(
-              launch.mission.description,
-              style: Theme.of(context).textTheme.bodyText2!.copyWith(
-                    height: 1.3,
-                  ),
+          Expanded(
+            child: Padding(
+              padding: const EdgeInsets.only(
+                top: 4,
+                left: 8,
+                right: 8,
+                bottom: 16,
+              ),
+              child: Text(
+                launch.mission.description,
+                maxLines: 5,
+                style: Theme.of(context).textTheme.bodyText2!.copyWith(
+                      height: 1.3,
+                    ),
+              ),
             ),
           ),
         ],
