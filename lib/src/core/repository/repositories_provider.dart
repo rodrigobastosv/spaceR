@@ -4,7 +4,10 @@ import '../../feature/feature.dart';
 import '../core.dart';
 
 final repositoriesProviders = [
-  RepositoryProvider<LaunchRepository>(
-    create: (_) => HttpLaunchRepository(getDefaultClient()),
+  RepositoryProvider<LaunchesRepository>(
+    create: (_) => HttpLaunchesRepository(getDefaultClient()),
+  ),
+  RepositoryProvider<AgenciesRepository>(
+    create: (_) => HttpAgenciesRepository(getDefaultClient()),
   ),
 ];

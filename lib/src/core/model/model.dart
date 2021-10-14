@@ -1,3 +1,4 @@
+export 'agency.dart';
 export 'configuration.dart';
 export 'launch_service_provider.dart';
 export 'launch.dart';

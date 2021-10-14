@@ -13,14 +13,6 @@ class SRRouter {
 
     late Widget routeWidget;
     switch (routeName) {
-      case LAUNCH_PAGE:
-        routeWidget = BlocProvider<LaunchBloc>(
-          create: (context) => LaunchBloc(
-            launchRepository: context.read<LaunchRepository>(),
-          )..add(LaunchGetAll()),
-          child: const LaunchPage(),
-        );
-        break;
       case MAIN_PAGE:
         routeWidget = BlocProvider<MainBloc>(
           create: (_) => MainBloc(),

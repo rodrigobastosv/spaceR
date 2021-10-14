@@ -17,7 +17,7 @@ Launch _$LaunchFromJson(Map<String, dynamic> json) {
     net: json['net'] as String,
     windowEnd: json['windowEnd'] as String?,
     windowStart: json['windowStart'] as String?,
-    probability: json['probability'] as String?,
+    probability: json['probability'] as int?,
     holdreason: json['holdreason'] as String?,
     failreason: json['failreason'] as String?,
     hashtag: json['hashtag'] as String?,

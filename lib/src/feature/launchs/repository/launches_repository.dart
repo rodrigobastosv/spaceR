@@ -1,5 +1,5 @@
 import '../../../core/core.dart';
 
-abstract class LaunchRepository {
+abstract class LaunchesRepository {
   Future<List<Launch>> fetchLaunchs();
 }

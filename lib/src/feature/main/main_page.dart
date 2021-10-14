@@ -30,15 +30,11 @@ class MainPage extends StatelessWidget {
   Widget _getPageByIndex(int index) {
     switch (index) {
       case 0:
-        return Container(
-          color: Colors.black,
-        );
+        return const HomePage();
       case 1:
         return const LaunchPage();
       case 2:
-        return Container(
-          color: Colors.green,
-        );
+        return const AgenciesPage();
       case 3:
         return Container(
           color: Colors.yellow,

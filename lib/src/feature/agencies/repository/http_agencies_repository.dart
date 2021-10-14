@@ -1,23 +1,22 @@
 import 'package:dio/dio.dart';
 
 import '../../../core/core.dart';
+import 'repository.dart';
 
-import 'launch_repository.dart';
-
-class HttpLaunchRepository implements LaunchRepository {
-  HttpLaunchRepository(this.client);
+class HttpAgenciesRepository implements AgenciesRepository {
+  HttpAgenciesRepository(this.client);
 
   final Dio client;
 
   @override
-  Future<List<Launch>> fetchLaunchs() async {
+  Future<List<Agency>> fetchAgencies() async {
     try {
-      final response = await client.get(LAUNCH_UPCOMING);
+      final response = await client.get(AGENCIES);
       if (response.statusCode == HTTP_OK) {
         final data = response.data['results'] as List;
         return List.generate(
           data.length,
-          (i) => Launch.fromJson(data[i] as Map<String, dynamic>),
+          (i) => Agency.fromJson(data[i] as Map<String, dynamic>),
         );
       }
       return [];

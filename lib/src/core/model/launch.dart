@@ -41,7 +41,7 @@ class Launch extends Equatable {
   final String net;
   final String? windowEnd;
   final String? windowStart;
-  final String? probability;
+  final int? probability;
   final String? holdreason;
   final String? failreason;
   final String? hashtag;
